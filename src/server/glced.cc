@@ -96,7 +96,7 @@ int ced_picking(int x,int y,GLfloat *wx,GLfloat *wy,GLfloat *wz); //from ced_srv
 
 
 //*************** global variables ***************************************//
-int animation_start_time;
+int animation_start_time = 0;
 int animate_layer = -1;
 //for new angles add the new angle to this list and to define in ced_menu.h
 static int available_cutangles[]={0,30,45,90,100,135,120,150,170,180,190,200,220,240,260,270,280,290,310,330,340};
