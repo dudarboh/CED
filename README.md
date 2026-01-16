@@ -180,7 +180,7 @@ to define colors is better use gimp - it gives that crasy numbers easily
 
 
 ## License and Copyright
-Copyright (C) 2005-2017, CED Authors
+Copyright (C) 2005-2026, CED Authors
 
 CED is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
