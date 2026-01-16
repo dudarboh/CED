@@ -235,7 +235,7 @@ for event in reader.get("events"):
             pos = hit.getPosition()
             t = hit.getTime()
             ced_hit_ID(pos.x, pos.y, pos.z, CED_HIT_POINT, layer, size, color, 0)
-            ced_hit_ID_animate(pos.x, pos.y, pos.z, t, CED_HIT_POINT, layer, size, color, 0)
+            ced_hit_ID_animate(pos.x, pos.y, pos.z, t, CED_HIT_POINT, animated_layer, size, color, 0)
 
     ced_send_event()
 
