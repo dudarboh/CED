@@ -1296,14 +1296,14 @@ static void ced_draw_hit(CED_Hit *h){
     if ( to_animate && animate_layer == -1 ) animation_start_time = glutGet(GLUT_ELAPSED_TIME);
 
     if(!IS_VISIBLE(h->layer)){
-        if (to_animate && animate_layer == h->layer) animate_layer = -1;
+        if (to_animate && animate_layer == int(h->layer) ) animate_layer = -1;
         return;
     }
 
     //    printf("Draw hit at : %f %f %f type = %d and ced_visible_layers = %d \n",h->p.x,h->p.y,h->p.z,h->type,ced_visible_layers);
     if (to_animate){
         if ( animate_layer == -1 ) animate_layer = h->layer;
-        else if ( animate_layer != h->layer ){
+        else if ( animate_layer != int(h->layer) ){
             setting.layer[animate_layer] = false;
             animate_layer = h->layer;
             animation_start_time = glutGet(GLUT_ELAPSED_TIME);
