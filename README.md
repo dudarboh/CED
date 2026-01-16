@@ -150,7 +150,7 @@ In any Processor:
 		//	      float x1,float y1,float z1,
 		//	      unsigned type,unsigned width,unsigned color);
 
-        // delay in seconds hit rendering by the time "t" to produce animation effect. "Show FPS" must be switched on.
+        // hit rendering is delayed by the time "t" (in seconds). Produce animation effect. "Show FPS" must be switched on.
 		// void ced_hit_ID_animate(float x,float y,float z, float t, unsigned type, unsigned size, unsigned color, unsigned id);
 
 
