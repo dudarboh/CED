@@ -195,6 +195,12 @@ import os
 import cppyy
 from podio import root_io
 
+# User Config
+COMPACT_PATH="<path-to-compact-file>"
+EDM4HEP_FILE = "<path-to-edm4hep-file>"
+TRACKER_HIT_COLS = ["<name-of-tracker-hit-col-1>", "<name-of-tracker-hit-col-2>", "<...>"]
+CALO_HIT_COLS = ["<name-of-calo-hit-col-1>", "<name-of-calo-hit-col-2>", "<...>"]
+
 # Load dependencies
 for path in os.environ["CMAKE_PREFIX_PATH"].split(":"):
     inlcude_dir = os.path.join(path, "include")
@@ -207,12 +213,12 @@ for path in os.environ["CMAKE_PREFIX_PATH"].split(":"):
 cppyy.include("ced_cli.h")
 cppyy.include("DDMarlinCED.h")
 from cppyy.gbl import ced_client_init, ced_register_elements
-from cppyy.gbl import ced_new_event, ced_send_event, ced_selected_id_noblock,
-from cppyy.gbl import ced_hit_ID, ced_hit_ID_animate, CED_HIT_POINT, 
+from cppyy.gbl import ced_new_event, ced_send_event, ced_selected_id_noblock
+from cppyy.gbl import ced_hit_ID, ced_hit_ID_animate, CED_HIT_POINT
 std = cppyy.gbl.std
 DDMarlinCED = cppyy.gbl.DDMarlinCED
 
-det_compact_file = os.path.join( os.environ["LCGEO"], COMPACT_PATH )
+det_compact_file = os.path.join( os.environ["k4geo_DIR"], COMPACT_PATH )
 detector = cppyy.gbl.dd4hep.Detector.getInstance()
 detector.fromCompact(det_compact_file)
 
@@ -228,7 +234,7 @@ for event in reader.get("events"):
     layer = 1  # layer under which hits are displayed
     animated_layer = 2
     size = 5  # size of the hits
-    color = int(color.lstrip("#000000"), 16)  # color of the hits
+    color = 0x000000  # hex color of the hits
     # Draw all reconstructed hits in layer #1 and animate them in layer #2
     for col in TRACKER_HIT_COLS + CALO_HIT_COLS:
         for hit in event.get(col):
